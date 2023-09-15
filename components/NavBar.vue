@@ -1,45 +1,47 @@
 <template>
-    <v-app-bar >
-      <!-- Título a la izquierda -->
-      <v-toolbar-title>
-        Mi Portfolio
-      </v-toolbar-title>
-  
-      <v-spacer></v-spacer>
-  
-      <!-- Opciones del nav al centro -->
-      <v-btn text href="#">Inicio</v-btn>
-      <v-btn text href="#">Proyectos</v-btn>
-      <v-btn text href="#">Acerca de mí</v-btn>
-      <v-btn text href="#">Contacto</v-btn>
-  
-      <v-spacer></v-spacer>
-  
-      <!-- Botón dark/light mode a la derecha -->
-      <v-btn >
-  <v-icon >mdi-lightbulb</v-icon>
-  <v-icon >mdi-lightbulb-outline</v-icon>
-</v-btn>
+  <v-app-bar>
+    <!-- Título a la izquierda -->
+    <v-toolbar-title>
+      Mi Portfolio
+    </v-toolbar-title>
 
-    </v-app-bar>
-  </template>
-  
+    <v-spacer></v-spacer>
 
-  <script lang="ts">
+    <!-- Opciones del nav al centro -->
+    <v-btn text="" href="#">Inicio</v-btn>
+    <v-btn text="" href="#">Proyectos</v-btn>
+    <v-btn text="" href="#">Acerca de mí</v-btn>
+    <v-btn text="" href="#">Contacto</v-btn>
 
-  
-  export default {
-    name: 'Navbar',
-    setup() {
-     
-  
-      return {
- 
-      }
+    <v-spacer></v-spacer>
+
+    <!-- Botón dark/light mode a la derecha -->
+    <v-btn @click="toggleTheme">
+      <v-icon v-if="theme.global.current.value.dark" color="yellow">mdi-weather-night</v-icon>
+      <v-icon v-else color="black">mdi-weather-sunny</v-icon>
+    </v-btn>
+  </v-app-bar>
+</template>
+
+<script lang="ts">
+import { useTheme } from 'vuetify'
+
+export default {
+  name: 'Navbar',
+  setup() {
+    const theme = useTheme();
+
+    function toggleTheme() {
+      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+    }
+
+    return {
+      theme,
+      toggleTheme
     }
   }
-  </script>
-  
+}
+</script>
 
 <style scoped>
 /* Estilizar el botón para que tenga un poco más de espacio y un hover más notorio */
