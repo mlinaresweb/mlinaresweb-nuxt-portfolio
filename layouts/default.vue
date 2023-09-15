@@ -2,9 +2,7 @@
     <v-app>
       <NavBar />
       <v-main>
-        <slot>
-            
-        </slot>
+      <slot></slot>
       </v-main>
       <Footer></Footer>
     </v-app>

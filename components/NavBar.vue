@@ -16,28 +16,23 @@
     <v-spacer></v-spacer>
 
     <!-- Botón dark/light mode a la derecha -->
-    <v-btn @click="toggleTheme">
-      <v-icon v-if="theme.global.current.value.dark" color="yellow">mdi-weather-night</v-icon>
-      <v-icon v-else color="black">mdi-weather-sunny</v-icon>
-    </v-btn>
+  <ToogleTheme></ToogleTheme>
   </v-app-bar>
 </template>
 
 <script lang="ts">
-import { useTheme } from 'vuetify'
+import ToogleTheme from '~/components/ToogleTheme.vue'
+
 
 export default {
   name: 'Navbar',
+  components: {
+    ToogleTheme
+  },
   setup() {
-    const theme = useTheme();
-
-    function toggleTheme() {
-      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
-    }
-
+   
     return {
-      theme,
-      toggleTheme
+     
     }
   }
 }
