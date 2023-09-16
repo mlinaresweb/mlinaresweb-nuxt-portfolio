@@ -1,9 +1,9 @@
 <template>
   <v-app >
     <div  class="layout-container">
-      <SideBar :style="{ backgroundColor: $vuetify.theme.current.colors.primary }" />
+      <SideBar class="bg-primary container-border" />
       <v-main class="main-content" >
-        <div class="page-container" :style="{ backgroundColor: $vuetify.theme.current.colors.primary }">
+        <div class="page-container bg-primary container-border" >
           <SubNav />
           <div class="content">
             <slot></slot>
@@ -13,12 +13,14 @@
     </div>
   </v-app>
 </template>
+<script lang="ts">
+
+</script>
 
 <style >
 .layout-container {
   display: flex;
   height: 100vh;
-  background-color: var(--v-primary-base);
 }
 
 .main-content {
@@ -30,13 +32,10 @@
 
 .page-container {
   flex: 1;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   margin: 15px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--v-primary-base);
 }
 
 .content {
@@ -52,11 +51,7 @@
     flex-direction: column;
   }
 
-  .sidebar-container {
-    width: calc(100% - 30px); /* Restamos 15px de margen a cada lado */
-    height: auto;
-    margin: 15px;
-  }
+ 
 
   .main-content {
     height: auto;

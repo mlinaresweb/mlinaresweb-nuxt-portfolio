@@ -1,76 +1,117 @@
 <template>
-    <div class="sidebar-container">
+    <div class="sidebar-container" :class="{ expanded: state.showDetails }">
       <div class="avatar-margin">
-        <img src="tu_url_de_imagen" alt="Nombre" class="avatar-img">
+        <img src="../assets//manel-perfil.png" alt="Nombre" class="avatar-img">
       </div>
-      <div class="mt-4"></div>
       <h3>Tu Nombre</h3>
       <p>Tu Título</p>
-      <div class="my-4 divider"></div>
-      <ul class="sidebar-list">
-        <li class="sidebar-item">
-          <span class="mdi mdi-email"></span> tu_correo@email.com
-        </li>
-        <li class="sidebar-item" @click="goTo('https://github.com/tu_usuario')">
-          <span class="mdi mdi-github"></span> Github
-        </li>
-        <li class="sidebar-item" @click="goTo('https://linkedin.com/in/tu_usuario')">
-          <span class="mdi mdi-linkedin"></span> LinkedIn
-        </li>
-        <li class="sidebar-item">
-          <span class="mdi mdi-map-marker"></span> Tu Localización
-        </li>
-      </ul>
+  
+      <!-- Ícono para desplegar el contenido en móvil -->
+      <div v-if="isMobile" class="expand-icon" @click="toggleSidebar">
+        <span class="mdi mdi-arrow-down"></span>
+      </div>
+  
+      <!-- Contenido que se desplegará en móvil -->
+      <div v-if="!isMobile || state.showDetails">
+        <div class="my-4 divider"></div>
+        <ul class="sidebar-list">
+          <li class="sidebar-item" >
+            <span class="mdi mdi-email"></span> tu_correo@email.com
+          </li>
+          <li class="sidebar-item" >
+            <span class="mdi mdi-github"></span> Github
+          </li>
+          <li class="sidebar-item">
+            <span class="mdi mdi-linkedin"></span> LinkedIn
+          </li>
+          <li class="sidebar-item">
+            <span class="mdi mdi-map-marker"></span> Tu Localización
+          </li>
+        </ul>
+      </div>
     </div>
   </template>
   
-  <script>
+  <script lang="ts">
+  import { reactive } from 'vue';
+  import { useMobileDetect } from '@/composables/useMobileDetect';
+  
   export default {
-    methods: {
-      goTo(url) {
-        window.location.href = url;
-      }
+    setup() {
+      const { isMobile } = useMobileDetect();
+  
+      const state = reactive({
+        showDetails: false
+      });
+  
+      const toggleSidebar = () => {
+        state.showDetails = !state.showDetails;
+      };
+  
+      return {
+        isMobile,
+        state,
+        toggleSidebar,
+      };
     }
   }
   </script>
   
-  <style scoped>
+
+  
+<style scoped>
 .sidebar-container {
   padding: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   width: 250px;
   height: calc(100vh - 30px);
   overflow-y: auto;
   margin: 15px; 
-  background-color: var(--v-primary-base);
 }
   
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.expand-icon {
+  cursor: pointer;
+  margin-top: 10px;
+}
+  
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+  
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+  
+.sidebar-item span {
+  margin-right: 10px;
+}
+
+/* Estilos para móvil */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: auto;
+    height: auto; /* altura automática en móviles */
+    max-height: 200px; /* altura máxima inicial en móviles */
+  }
+
   .avatar-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
   }
-  
-  .divider {
-    height: 1px;
-    background-color: #ddd;
+
+  /* Estilo cuando se muestra el detalle en móviles */
+  .sidebar-container.expanded {
+    max-height: calc(100vh - 30px); /* altura máxima expandida */
   }
-  
-  .sidebar-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar-item {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .sidebar-item span {
-    margin-right: 10px;
-  }
-  </style>
-  
+}
+</style>

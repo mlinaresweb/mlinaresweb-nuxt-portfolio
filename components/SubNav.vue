@@ -1,5 +1,5 @@
 <template>
-    <div class="subnav">
+    <div class="subnav ">
       <v-btn class="subnav-button" @click="navigate('habilidades')">Habilidades</v-btn>
       <v-btn class="subnav-button" @click="navigate('estudios')">Estudios</v-btn>
       <v-btn class="subnav-button" @click="navigate('trabajos')">Trabajos</v-btn>

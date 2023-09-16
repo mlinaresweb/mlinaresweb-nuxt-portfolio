@@ -1,0 +1,19 @@
+:root {
+    --bg-gradient-onyx: linear-gradient(
+        to bottom right, 
+        hsl(240, 1%, 25%) 3%, 
+        hsl(0, 0%, 19%) 97%
+    );
+}
+
+.container-border{
+box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+border: 1px solid hsl(0, 0%, 22%);
+border-radius: 20px;
+}
+
+.divider {
+    height: 1px;
+    background-color: hsl(0, 0%, 22%);
+  }
+  

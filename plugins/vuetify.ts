@@ -10,15 +10,12 @@ export default defineNuxtPlugin(nuxtApp => {
         directives,
         theme: {
             defaultTheme: 'dark',
-            options: {
-                customProperties: true
-              },
             themes: {
                 dark: {
                     colors: {
-                        background: '#161616',  // Por ejemplo
-                        surface: '#0f0f0f',
-                        primary: '#212121',
+                        background: '#121212',  // Por ejemplo
+                        surface: '#4CAF50',
+                        primary: 'rgba(31, 31, 32, 0.25)', 
                         secondary: '#424242',
                         accent: '#FF4081',
                         error: '#FF5252',
@@ -33,6 +30,12 @@ export default defineNuxtPlugin(nuxtApp => {
                         background: '#FFFFFF',
                         surface: '#F1F1F1',
                         primary: '#1976D2',
+                        secondary: '#424242',
+                        accent: '#FF4081',
+                        error: '#FF5252',
+                        info: '#2196F3',
+                        success: '#4CAF50',
+                        warning: '#FFC107',
                         // ... otros colores para el tema claro
                     }
                 }
