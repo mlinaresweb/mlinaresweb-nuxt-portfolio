@@ -1,66 +1,76 @@
 <template>
-    <div class="projects-page">
-        <v-carousel v-if="projectGroups.length" cycle :model-value="currentIndex" @update:model-value="setIndex">
-        <v-carousel-item v-for="projectGroup in projectGroups" :key="projectGroup[0].id">
-          <v-row>
-            <v-col v-for="project in projectGroup" :key="project.id" :cols="cols">
-              <v-card flat class="project-card">
-                <v-img :src="project.image" class="project-image" contain aspect-ratio="16/9">
-                  <div class="overlay">
-                    <v-card-title class="title">{{ project.title }}</v-card-title>
-                  </div>
-                </v-img>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-carousel-item>
-      </v-carousel>
-    </div>
-  </template>
-  
+  <div class="projects-page">
+    <Swiper
+  ref="swiperRef"
+  :modules="[SwiperPagination, SwiperAutoplay]"  
+  :slides-per-view="slidesPerView"
+  :space-between="20"
+  :loop="true"
+  :pagination="{ clickable: true, type: 'progressbar' }"
+  :autoplay="{ delay: 5000, disableOnInteraction: false }" 
+  class="mySwiper"
+>
 
-  <script lang="ts">
-  import { defineComponent, computed } from 'vue';
-  import useSlider from '~/composables/useSlider';
-  import { useMobileDetect } from '~/composables/useMobileDetect';
+      <SwiperSlide v-for="project in projects" :key="project.id">
+        <v-card flat class="project-card">
+          <v-img :src="project.image" class="project-image" contain aspect-ratio="16/9">
+            <div class="overlay">
+              <v-card-title class="title">{{ project.title }}</v-card-title>
+            </div>
+          </v-img>
+        </v-card>
+      </SwiperSlide>
+    </Swiper>
+
+    <GithubProjects></GithubProjects>
+  </div>
+</template>
+
   
+  <script lang="ts">
+  import { defineComponent, computed, ref, onMounted, Ref } from 'vue';
+  import { Swiper, SwiperSlide, } from 'swiper/vue';
+  import 'swiper/swiper-bundle.css';
+  import { useMobileDetect } from '~/composables/useMobileDetect';
+  import useSlider, { Project } from '~/composables/useSlider';
+
   export default defineComponent({
+    components: {
+      Swiper,
+      SwiperSlide
+    },
     setup() {
       const initialProjects = [
       { id: 1, title: "Proyecto A", description: "Descripción A", image: "/waves2.png", technologies: ["Vue", "Nuxt"] },
-        { id: 2, title: "Proyecto B", description: "Descripción B", image: "/waves2.png", technologies: ["Vue", "Firebase"] },
-        { id: 3, title: "Proyecto C", description: "Descripción C", image: "/waves2.png", technologies: ["Vue", "Vuetify"] },
-        { id: 4, title: "Proyecto D", description: "Descripción D", image: "/waves2.png", technologies: ["Vue", "Node.js"] },
-        { id: 5, title: "Proyecto E", description: "Descripción E", image: "/waves2.png", technologies: ["Vue", "Express"] },
-      ]; 
+      { id: 2, title: "Proyecto B", description: "Descripción B", image: "/waves2.png", technologies: ["Vue", "Firebase"] },
+      { id: 3, title: "Proyecto C", description: "Descripción C", image: "/waves2.png", technologies: ["Vue", "Vuetify"] },
+      { id: 4, title: "Proyecto D", description: "Descripción D", image: "/waves2.png", technologies: ["Vue", "Node.js"] },
+      { id: 5, title: "Proyecto E", description: "Descripción E", image: "/waves2.png", technologies: ["Vue", "Express"] },
+      { id: 6, title: "Proyecto F", description: "Descripción A", image: "/waves2.png", technologies: ["Vue", "Nuxt"] },
+      ];
   
       const { isMobile } = useMobileDetect();
-      const { currentIndex, projectGroups } = useSlider(initialProjects, isMobile);
-      const cols = computed(() => isMobile.value ? 12 : 4);
-  
-      const setIndex = (index: number) => {
-        currentIndex.value = index;
-      }
-  
-      return {
-        currentIndex,
-        setIndex,
-        cols,
-        projectGroups
-      };
-    },
-  });
-  
-  </script>
-  
+        const slidesPerView = computed(() => (isMobile.value ? 1 : 3));
+        
+        const { projects } = useSlider(initialProjects, isMobile);
 
-<style scoped>
+        return {
+            slidesPerView,
+            projects
+        };
+    }
+});
+  </script>
+
+<style>
 .project-card {
   background-color: #f5f5f5;
   padding: 0; /* Eliminamos el padding del card */
   overflow: hidden; /* Esto evitará que la imagen se desborde del contenedor */
 }
-
+.projects-page {
+  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+}
 
 .overlay {
   position: absolute;
@@ -74,6 +84,7 @@
 
 .title {
   color: white !important;
+  font-size: 1em;
 }
 
 .technologies {
@@ -88,6 +99,26 @@
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
+
+/* Estilos para la paginación de Swiper */
+.swiper-pagination {
+  position: relative;
+ --swiper-pagination-color: #494949; /* Color del progreso activo */
+  width: 80%;  
+  left: 10%;  
+  height: 4px;  
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 2px; 
+  z-index: 10;
+}
+
+.swiper-pagination-progressbar {
+  background: rgb(196, 195, 195); 
+  border-radius: 2px; 
+  
+}
+
+
 </style>
 
 
