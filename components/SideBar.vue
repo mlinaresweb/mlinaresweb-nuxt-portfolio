@@ -63,9 +63,9 @@
 .sidebar-container {
   padding: 15px;
   width: 250px;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 40px);
   overflow-y: auto;
-  margin: 15px; 
+  margin: 20px; 
 }
   
 .avatar-img {

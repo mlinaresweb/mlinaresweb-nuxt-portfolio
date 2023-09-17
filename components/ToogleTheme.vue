@@ -30,7 +30,8 @@
   .v-btn {
     margin-left: 5px;
     margin-right: 5px;
-    transition: background-color 0.3s;
+    background-color: transparent !important;
+    color: inherit;
   }
   
   .v-btn:hover {

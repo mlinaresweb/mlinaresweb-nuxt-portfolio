@@ -1,12 +1,16 @@
 <template>
-    <div class="subnav ">
-      <v-btn class="subnav-button" @click="navigate('habilidades')">Habilidades</v-btn>
-      <v-btn class="subnav-button" @click="navigate('estudios')">Estudios</v-btn>
-      <v-btn class="subnav-button" @click="navigate('trabajos')">Trabajos</v-btn>
-      <v-btn class="subnav-button" @click="navigate('proyectos')">Proyectos</v-btn>
-      <v-btn class="subnav-button" @click="navigate('github')">Github</v-btn>
+    <div class="subnav-wrapper">
+       <ToogleTheme class="theme-toggle"></ToogleTheme>
+      <div class="subnav">
+        <v-btn class="subnav-button" @click="navigate('index')">About</v-btn>
+        <v-btn class="subnav-button" @click="navigate('skills')">Habilidades</v-btn>
+        <v-btn class="subnav-button" @click="navigate('experencia')">Experencia</v-btn>
+        <v-btn class="subnav-button" @click="navigate('proyectos')">Proyectos</v-btn>
+        <v-btn class="subnav-button" @click="navigate('github')">Contactar</v-btn>
+      </div>
     </div>
   </template>
+  
   
   <script>
   export default {
@@ -19,16 +23,30 @@
   </script>
   
   <style scoped>
-  .subnav {
+.subnav-wrapper {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: space-between; /* Esto permitirá que el botón y el menú se separen entre sí */
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.subnav {
+    display: flex;
     align-items: center;
-    padding: 10px 0;
-    gap: 10px; 
-  }
-  
-  .subnav-button {
-    margin: 0 5px; 
-  }
+    gap: 5px;
+}
+
+.subnav-button {
+    background-color: transparent !important;
+    color: inherit;
+    margin: 0 2px;
+}
+
+.theme-toggle {
+    margin-right: 10px; /* Separación entre el botón y el menú */
+}
+
+
   </style>
   

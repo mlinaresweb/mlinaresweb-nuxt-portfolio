@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@types/swiper": "^6.0.0",
     "autoprefixer": "^10.4.15",
     "nuxt": "^3.7.3",
     "postcss": "^8.4.29",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@mdi/font": "^7.2.96",
     "sass": "^1.67.0",
+    "swiper": "^10.2.0",
     "vuetify": "^3.4.0-alpha.1"
   }
 }

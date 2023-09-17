@@ -32,7 +32,7 @@
 
 .page-container {
   flex: 1;
-  margin: 15px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
