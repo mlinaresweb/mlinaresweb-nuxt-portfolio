@@ -65,11 +65,11 @@
 <style>
 .project-card {
   background-color: #f5f5f5;
-  padding: 0; /* Eliminamos el padding del card */
-  overflow: hidden; /* Esto evitará que la imagen se desborde del contenedor */
+  padding: 0; 
+  overflow: hidden; 
 }
 .projects-page {
-  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+  margin-bottom: 20px; 
 }
 
 .overlay {

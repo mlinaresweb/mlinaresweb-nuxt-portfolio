@@ -6,7 +6,7 @@
         <v-btn class="subnav-button" @click="navigate('skills')">Habilidades</v-btn>
         <v-btn class="subnav-button" @click="navigate('experencia')">Experencia</v-btn>
         <v-btn class="subnav-button" @click="navigate('proyectos')">Proyectos</v-btn>
-        <v-btn class="subnav-button" @click="navigate('github')">Contactar</v-btn>
+        <v-btn class="subnav-button" @click="navigate('contact')">Contactar</v-btn>
       </div>
     </div>
   </template>
