@@ -18,6 +18,10 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@mdi/font": "^7.2.96",
     "@nuxt/http": "^0.6.4",
     "@nuxtjs/axios": "^5.13.6",

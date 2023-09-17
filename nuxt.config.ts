@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   plugins: [
     '~/plugins/vuetify.ts', // Asegúrate de que la ruta sea correcta
     '~/plugins/swiper.ts',
-    '~/plugins/axios.ts'
+    '~/plugins/axios.ts',
   ],
   swiper: {
     modules: ['pagination','autoplay'], // Asegúrate de que 'pagination' esté incluido

@@ -63,6 +63,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SkillsPlates></SkillsPlates>
 </template>
 
 
@@ -110,7 +111,7 @@ h1 {
   display: flex;
   align-items: center; 
   height: 100%;
-  border-radius: 8px; /* Añade esta línea */
+  border-radius: 8px; 
 }
 
 @media (max-width: 767px) {
@@ -145,18 +146,18 @@ margin-left: 70px;
   position: relative;
   padding-bottom: 100%;
   background-color: #242424;
-  border-radius: 8px;         /* Esquinas ligeramente redondeadas */
-  transition: box-shadow 0.3s; /* Efecto suave al cambiar la sombra */
+  border-radius: 8px;         
+  transition: box-shadow 0.3s; 
   box-shadow: 
-      0 0 0 2px #e0e0e0, /* Borde claro */
-      0 2px 4px rgba(0, 0, 0, 0.1); /* Sombreado sutil */
+      0 0 0 2px #e0e0e0, 
+      0 2px 4px rgba(0, 0, 0, 0.1); 
       
 }
 
 .square-plate:hover {
   box-shadow: 
-      0 0 0 2px #ff9800,  /* Cambiar el color del "borde" al pasar el mouse por encima */
-      0 2px 4px rgba(0, 0, 0, 0.1); /* Sombreado sutil */
+      0 0 0 2px #ff9800,  
+      0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -165,9 +166,9 @@ margin-left: 70px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 70%;  /* limita el ancho máximo */
-  max-height: 70%; /* limita la altura máxima */
-  width: auto;     /* permita que las imágenes se ajusten según su aspecto */
+  max-width: 70%;  
+  max-height: 70%; 
+  width: auto;     
   height: auto;
 }
 
