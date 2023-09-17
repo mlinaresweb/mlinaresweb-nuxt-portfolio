@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export interface Repo {
     id: number;
     name: string;
@@ -15,8 +17,8 @@ export interface Repo {
   };
   
   const fetchRepos = async (username: string): Promise<Repo[]> => {
-    const response = await fetch(`https://api.github.com/users/${username}/repos`);
-    const fetchedRepos: Repo[] = await response.json();
+    const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+    const fetchedRepos: Repo[] = response.data;
   
     // Ordenar repositorios por fecha de creación en orden descendente
     fetchedRepos.sort((a: Repo, b: Repo) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
@@ -26,13 +28,11 @@ export interface Repo {
         repo.description = customDescriptions[repo.name];
       }
   
-      const langResponse = await fetch(repo.languages_url);
-      const langData = await langResponse.json();
-      repo.languages = Object.keys(langData);
+      const langResponse = await axios.get(repo.languages_url);
+      repo.languages = Object.keys(langResponse.data);
     }
   
     return fetchedRepos;
   };
   
   export { fetchRepos };
-  
