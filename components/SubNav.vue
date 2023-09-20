@@ -122,7 +122,7 @@ export default {
 }
 .mobile-subnav {
     flex-direction: column;
-    align-items: flex-start;
+   display: flex;
     gap: 5px;
 }
 /* Ocultar el menú hamburguesa por defecto y mostrarlo solo entre 0px y 400px */
@@ -146,6 +146,7 @@ export default {
   }
   .subnav-button {
     margin-left: 20px;
+    font-size: 8px;
 }
 }
   </style>

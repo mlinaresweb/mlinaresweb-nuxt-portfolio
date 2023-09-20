@@ -1,25 +1,33 @@
 <template>
-    <div class="sidebar-container" :class="{ expanded: state.showDetails }">
+  <div class="sidebar-container" :class="{ expanded: state.showDetails }">
+
+    <!-- Toggles en la parte superior -->
+    <div class="toggle-container">
       <ToogleTheme></ToogleTheme>
+      <ToogleTheme></ToogleTheme>
+    </div>
+
+    <!-- Contenido principal centrado -->
+    <div class="content-container">
       <div class="avatar-margin">
-        <img src="../assets//manel-perfil.png" alt="Nombre" class="avatar-img">
+        <img src="../assets/manel-perfil.png" alt="Nombre" class="avatar-img">
       </div>
       <h3>Tu Nombre</h3>
       <p>Tu Título</p>
-  
+
       <!-- Ícono para desplegar el contenido en móvil -->
       <div v-if="isMobile" class="expand-icon" @click="toggleSidebar">
         <span class="mdi mdi-arrow-down"></span>
       </div>
-  
+
       <!-- Contenido que se desplegará en móvil -->
       <div v-if="!isMobile || state.showDetails">
         <div class="my-4 divider"></div>
         <ul class="sidebar-list">
-          <li class="sidebar-item" >
+          <li class="sidebar-item">
             <span class="mdi mdi-email"></span> tu_correo@email.com
           </li>
-          <li class="sidebar-item" >
+          <li class="sidebar-item">
             <span class="mdi mdi-github"></span> Github
           </li>
           <li class="sidebar-item">
@@ -31,7 +39,14 @@
         </ul>
       </div>
     </div>
-  </template>
+
+    <!-- Pie de página en la parte inferior -->
+    <footer v-if="!isMobile || state.showDetails" class="footer">
+  <p>2023 • Hecho por mí</p>
+</footer>
+  </div>
+</template>
+
   
   <script lang="ts">
   import { reactive } from 'vue';
@@ -62,14 +77,31 @@
   
 <style scoped>
 .sidebar-container {
+  position: relative;
   padding: 15px;
   width: 250px;
   height: calc(100vh - 40px);
   overflow-y: auto;
-  margin: 20px ; 
+  margin: 20px; 
   margin-right: -12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
-  
+.footer {
+  text-align: center;  /* Centrar el texto del pie de página */
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centrar contenido horizontalmente */
+  flex: 1;  /* Ocupar todo el espacio disponible */
+}
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+}
 .avatar-img {
   width: 100px;
   height: 100px;
@@ -103,20 +135,24 @@
   .sidebar-container {
     width: auto;
     height: auto; /* altura automática en móviles */
-    max-height: 200px; /* altura máxima inicial en móviles */
     margin-right: 20px;
     margin: 6px;
     margin-bottom: -1px;
   }
 
-  .avatar-img {
-    width: 80px;
-    height: 80px;
+ 
+  .expand-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
   }
 
   /* Estilo cuando se muestra el detalle en móviles */
   .sidebar-container.expanded {
     max-height: calc(100vh - 30px); /* altura máxima expandida */
   }
+  
 }
 </style>

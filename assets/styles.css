@@ -20,3 +20,25 @@ border-radius: 20px;
     background-color: hsl(0, 0%, 22%);
   }
   
+/* Estilo general del scrollbar */
+::-webkit-scrollbar {
+    width: 8px;  /* Ancho del scrollbar */
+    height: 8px; /* Altura del scrollbar en scroll horizontal */
+}
+
+/* Estilo del track (barra de fondo) */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+/* Estilo base del pulgar (thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: #aaa;  /* Color base del thumb */
+    border-radius: 4px;
+}
+
+/* Estilo al pasar el ratón sobre la barra */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
