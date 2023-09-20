@@ -50,7 +50,9 @@
   .layout-container {
     flex-direction: column;
   }
-
+.page-container{
+  margin: 6px;
+}
  
 
   .main-content {

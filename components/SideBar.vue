@@ -65,7 +65,8 @@
   width: 250px;
   height: calc(100vh - 40px);
   overflow-y: auto;
-  margin: 20px; 
+  margin: 20px ; 
+  margin-right: -12px;
 }
   
 .avatar-img {
@@ -102,6 +103,9 @@
     width: auto;
     height: auto; /* altura automática en móviles */
     max-height: 200px; /* altura máxima inicial en móviles */
+    margin-right: 20px;
+    margin: 6px;
+    margin-bottom: -1px;
   }
 
   .avatar-img {
