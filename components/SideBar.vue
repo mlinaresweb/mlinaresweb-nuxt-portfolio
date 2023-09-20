@@ -1,5 +1,6 @@
 <template>
     <div class="sidebar-container" :class="{ expanded: state.showDetails }">
+      <ToogleTheme></ToogleTheme>
       <div class="avatar-margin">
         <img src="../assets//manel-perfil.png" alt="Nombre" class="avatar-img">
       </div>
@@ -98,7 +99,7 @@
 }
 
 /* Estilos para móvil */
-@media (max-width: 768px) {
+@media (max-width: 970px) {
   .sidebar-container {
     width: auto;
     height: auto; /* altura automática en móviles */

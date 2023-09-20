@@ -4,7 +4,9 @@
       <SideBar class="bg-primary container-border" />
       <v-main class="main-content" >
         <div class="page-container bg-primary container-border" >
+          <div class="nav">
           <SubNav />
+        </div>
           <div class="content">
             <slot></slot>
           </div>
@@ -43,10 +45,13 @@
   overflow-y: auto;
   padding: 20px;
 }
-
+.nav{
+  display: flex;
+  justify-content: flex-end;
+}
 /* Media queries para ajustar responsividad */
-@media (max-width: 768px) {
-  @media (max-width: 768px) {
+@media (max-width: 970px) {
+  
   .layout-container {
     flex-direction: column;
   }
@@ -58,6 +63,6 @@
   .main-content {
     height: auto;
   }
-}
+
 }
 </style>
