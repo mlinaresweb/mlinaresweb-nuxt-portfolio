@@ -12,8 +12,8 @@
       <div class="avatar-margin">
         <img src="../assets/manel-perfil.png" alt="Nombre" class="avatar-img">
       </div>
-      <h3>Tu Nombre</h3>
-      <p>Tu Título</p>
+      <h3>Manel Linares</h3>
+      <p>Full Stack Developer</p>
 
       <!-- Ícono para desplegar el contenido en móvil -->
       <div v-if="isMobile" class="expand-icon" @click="toggleSidebar">
@@ -24,8 +24,8 @@
       <div v-if="!isMobile || state.showDetails">
         <div class="my-4 divider"></div>
         <ul class="sidebar-list">
-          <li class="sidebar-item">
-            <span class="mdi mdi-email"></span> tu_correo@email.com
+          <li class="sidebar-item ">
+            <span class="mdi mdi-email "></span> tu_correo@email.com
           </li>
           <li class="sidebar-item">
             <span class="mdi mdi-github"></span> Github
@@ -108,7 +108,13 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
+.sidebar-item > span{
+  font-size: 20px;
+  background-color: rgb(53, 52, 52);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgb(80, 80, 80);
+}
 .expand-icon {
   cursor: pointer;
   margin-top: 10px;
